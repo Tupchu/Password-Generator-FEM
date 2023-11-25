@@ -93,6 +93,11 @@ body {
   align-items: center;
 }
 
+.content-heading {
+  text-align: center;
+  color: var(--clr-grey);
+}
+
 /* Utilities */
 .heading-lg {
   font-size: var(--fs-lg);

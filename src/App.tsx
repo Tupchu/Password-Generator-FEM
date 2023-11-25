@@ -1,9 +1,13 @@
 import "./App.css";
+import ConfigurePassword from "./components/ConfigurePassword";
+import GeneratedInput from "./components/GeneratedInput";
 
 function App() {
   return (
     <>
-      <h1>Hello world!</h1>
+      <p className="heading-md content-heading">Password Generator</p>
+      <GeneratedInput generatedPassword="" />
+      <ConfigurePassword passwordLength={0} />
     </>
   );
 }

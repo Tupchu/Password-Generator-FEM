@@ -1,0 +1,35 @@
+/* Generated Input */
+.input-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--spacing-lg);
+}
+
+.input-container img {
+  position: absolute;
+  right: var(--spacing-lg);
+}
+
+.generated-input {
+  background-color: var(--clr-background-dark);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* Configure Password */
+.configure-password {
+  background-color: var(--clr-background-dark);
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.configure-header {
+  display: flex;
+  justify-content: space-between;
+}
