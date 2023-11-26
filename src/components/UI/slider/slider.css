@@ -1,0 +1,53 @@
+/* ********** Baseline, reset styles ********** */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Removes default focus */
+.slider:focus {
+  outline: none;
+}
+
+/******** Chrome, Safari, Opera and Edge Chromium styles ********/
+/* slider track */
+.slider::-webkit-slider-runnable-track {
+  background-color: var(--clr-background-darker);
+  height: 0.5rem;
+}
+
+/* slider thumb */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -8px; /* Centers thumb on the track */
+  background-color: white;
+  border: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 100%;
+}
+
+/*********** Firefox styles ***********/
+/* slider track */
+.slider::-moz-range-track {
+  background-color: var(--clr-background-darker);
+  height: 0.5rem;
+}
+
+/* slider thumb */
+.slider::-moz-range-thumb {
+  background-color: white;
+  border: none; /*Removes extra border that FF applies*/
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 100%;
+}
+
+.slider::-moz-range-progress {
+  background-color: var(--clr-green);
+  height: 0.5rem;
+}

@@ -98,6 +98,15 @@ body {
   color: var(--clr-grey);
 }
 
+.btn {
+  cursor: pointer;
+  width: 100%;
+  padding: var(--spacing-md) 0;
+  background-color: var(--clr-green);
+  color: var(--clr-background-dark);
+  border: none;
+}
+
 /* Utilities */
 .heading-lg {
   font-size: var(--fs-lg);

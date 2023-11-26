@@ -32,4 +32,13 @@
 .configure-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+}
+
+.generate-btn {
+  margin-top: var(--spacing-lg);
+}
+
+.generate-btn:disabled {
+  background-color: gray;
 }
