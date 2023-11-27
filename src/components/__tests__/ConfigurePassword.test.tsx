@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import ConfigurePassword from "../ConfigurePassword";
 
 describe("generate password button", () => {
@@ -8,7 +8,6 @@ describe("generate password button", () => {
     );
 
     const btn = screen.getByText("Generate", { selector: "button" });
-
     expect(btn).toBeDisabled();
   });
 
@@ -18,17 +17,37 @@ describe("generate password button", () => {
     );
 
     const btn = screen.getByText("Generate", { selector: "button" });
-
     expect(btn).toBeDisabled();
   });
 
-  it("should not be disabled if passwordlength is greater than 0", () => {
+  it("should be disabled if there are no checked boxes", () => {
     render(
       <ConfigurePassword passwordLength={8} updatePasswordLength={() => {}} />
     );
 
-    const btn = screen.getByText("Generate", { selector: "button" });
+    const checkboxes = screen.queryAllByRole("checkbox") as HTMLInputElement[];
+    let checked = false;
 
+    checkboxes.forEach((box) => {
+      box.checked ? (checked = true) : null;
+    });
+
+    const btn = screen.getByText("Generate", { selector: "button" });
+    if (!checked) {
+      expect(btn).toBeDisabled();
+    }
+  });
+
+  it("should not be disabled if passwordlength is greater than 0 and a box is checked", () => {
+    render(
+      <ConfigurePassword passwordLength={8} updatePasswordLength={() => {}} />
+    );
+
+    const checkboxes = screen.queryAllByRole("checkbox") as HTMLInputElement[];
+
+    fireEvent.click(checkboxes[0]);
+
+    const btn = screen.getByText("Generate", { selector: "button" });
     expect(btn).not.toBeDisabled();
   });
 });
