@@ -99,7 +99,6 @@ body {
 }
 
 .btn {
-  cursor: pointer;
   width: 100%;
   padding: var(--spacing-md) 0;
   background-color: var(--clr-green);

@@ -7,6 +7,7 @@ interface GeneratedInputProps {
 
 const GeneratedInput = ({ generatedPassword }: GeneratedInputProps) => {
   const copyToClipboard = () => {
+    if (!generatedPassword) return;
     navigator.clipboard.writeText(generatedPassword);
   };
 
@@ -23,7 +24,7 @@ const GeneratedInput = ({ generatedPassword }: GeneratedInputProps) => {
         src={CopyIcon}
         alt="Copy generated password"
         className={generatedPassword ? "clickable" : ""}
-        onClick={() => copyToClipboard()}
+        onClick={copyToClipboard}
       />
     </div>
   );

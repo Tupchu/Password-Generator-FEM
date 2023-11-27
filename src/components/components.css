@@ -42,3 +42,7 @@
 .generate-btn:disabled {
   background-color: gray;
 }
+
+.options {
+  margin-top: 2rem;
+}
