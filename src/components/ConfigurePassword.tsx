@@ -4,6 +4,7 @@ import RightIcon from "../assets/icon-arrow-right.svg";
 import Checkbox from "./UI/checkbox/Checkbox";
 import { useState } from "react";
 import { generatePassword } from "../helpers/helpers";
+import StrengthIndicator from "./StrengthIndicator";
 
 interface ConfigurePasswordProps {
   passwordLength: number;
@@ -41,7 +42,7 @@ const ConfigurePassword = ({
         passwordLength={passwordLength}
         step={1}
         min={0}
-        max={10}
+        max={20}
       />
 
       <div className="options">
@@ -62,6 +63,11 @@ const ConfigurePassword = ({
           handleCheckboxChange={handleCheckboxChange}
         />
       </div>
+
+      <StrengthIndicator
+        passwordLength={passwordLength}
+        options={checkedboxes.length}
+      />
 
       <button
         className={`btn generate-btn ${

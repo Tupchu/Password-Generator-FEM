@@ -35,14 +35,49 @@
   margin-bottom: var(--spacing-lg);
 }
 
-.generate-btn {
-  margin-top: var(--spacing-lg);
-}
-
 .generate-btn:disabled {
   background-color: gray;
 }
 
 .options {
   margin-top: 2rem;
+}
+
+/* StrengthIndicator */
+.strength-indicator {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--clr-background-darker);
+  padding: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.indicator {
+  width: 8px;
+  border: solid 2px white;
+  padding: 0 3px;
+}
+
+.indicator:not(:last-child) {
+  margin-right: 6px;
+}
+
+.strength-weakest {
+  background-color: var(--clr-red);
+  border-color: var(--clr-red);
+}
+
+.strength-weak {
+  background-color: var(--clr-orange);
+  border-color: var(--clr-orange);
+}
+
+.strength-medium {
+  background-color: var(--clr-yellow);
+  border-color: var(--clr-yellow);
+}
+
+.strength-strong {
+  background-color: var(--clr-green);
+  border-color: var(--clr-green);
 }
