@@ -3,15 +3,18 @@ import "./components.css";
 import RightIcon from "../assets/icon-arrow-right.svg";
 import Checkbox from "./UI/checkbox/Checkbox";
 import { useState } from "react";
+import { generatePassword } from "../helpers/helpers";
 
 interface ConfigurePasswordProps {
   passwordLength: number;
   updatePasswordLength(length: number): void;
+  updateGeneratedPassword(password: string): void;
 }
 
 const ConfigurePassword = ({
   passwordLength,
   updatePasswordLength,
+  updateGeneratedPassword,
 }: ConfigurePasswordProps) => {
   const [checkedboxes, setCheckedboxes] = useState<string[]>([]);
 
@@ -21,6 +24,10 @@ const ConfigurePassword = ({
     } else {
       setCheckedboxes((prev) => prev.filter((item) => item !== label));
     }
+  };
+
+  const handleGeneratePassword = () => {
+    updateGeneratedPassword(generatePassword(passwordLength, checkedboxes));
   };
 
   return (
@@ -61,6 +68,7 @@ const ConfigurePassword = ({
           passwordLength > 0 && checkedboxes.length > 0 ? "clickable" : ""
         }`}
         disabled={passwordLength <= 0 || checkedboxes.length === 0}
+        onClick={handleGeneratePassword}
       >
         Generate <img src={RightIcon} alt="Generate password" />
       </button>
