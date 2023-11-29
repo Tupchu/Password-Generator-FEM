@@ -1,3 +1,5 @@
+import { type PasswordConfigOptions } from "../lib/types";
+
 export function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
@@ -15,7 +17,10 @@ export function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-export function generatePassword(passwordLength: number, options: string[]) {
+export function generatePassword(
+  passwordLength: number,
+  options: PasswordConfigOptions[]
+) {
   const typeCount = options.length;
   let currCount = 1;
 

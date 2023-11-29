@@ -4,6 +4,7 @@ import Checkbox from "./UI/checkbox/Checkbox";
 import { useState } from "react";
 import { generatePassword } from "../helpers/helpers";
 import StrengthIndicator from "./StrengthIndicator";
+import { type PasswordConfigOptions } from "../lib/types";
 
 interface ConfigurePasswordProps {
   passwordLength: number;
@@ -16,9 +17,12 @@ const ConfigurePassword = ({
   updatePasswordLength,
   updateGeneratedPassword,
 }: ConfigurePasswordProps) => {
-  const [checkedboxes, setCheckedboxes] = useState<string[]>([]);
+  const [checkedboxes, setCheckedboxes] = useState<PasswordConfigOptions[]>([]);
 
-  const handleCheckboxChange = (checked: boolean, label: string) => {
+  const handleCheckboxChange = (
+    checked: boolean,
+    label: PasswordConfigOptions
+  ) => {
     if (checked) {
       setCheckedboxes((prev) => [...prev, label]);
     } else {

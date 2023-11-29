@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./components.css";
 
 interface GeneratedInputProps {
@@ -8,18 +8,21 @@ interface GeneratedInputProps {
 const GeneratedInput = ({ generatedPassword }: GeneratedInputProps) => {
   const [toastActive, setToastActive] = useState<boolean>(false);
 
-  const copyToClipboard = () => {
-    if (!generatedPassword) return;
-    navigator.clipboard.writeText(generatedPassword);
-
-    setToastActive(true);
+  useEffect(() => {
     const timeout = setTimeout(() => {
       setToastActive(false);
     }, 1000);
 
-    () => {
+    return () => {
       clearTimeout(timeout);
     };
+  }, [toastActive]);
+
+  const copyToClipboard = () => {
+    if (!generatedPassword || !navigator.clipboard) return;
+    navigator.clipboard.writeText(generatedPassword);
+
+    setToastActive(true);
   };
 
   return (
@@ -46,9 +49,9 @@ const GeneratedInput = ({ generatedPassword }: GeneratedInputProps) => {
           />
         </svg>
       </div>
-      <div
-        className={`toast ${toastActive ? "" : "hidden"}`}
-      >{`Copied to the clipboard!`}</div>
+      <div className={`toast ${toastActive ? "" : "hidden"}`}>
+        Copied password to the clipboard!
+      </div>
     </>
   );
 };

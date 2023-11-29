@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "./checkbox.css";
+import { type PasswordConfigOptions } from "../../../lib/types";
 
 interface CheckboxProps {
-  label: string;
-  handleCheckboxChange(checked: boolean, label: string): void;
+  label: PasswordConfigOptions;
+  handleCheckboxChange(checked: boolean, label: PasswordConfigOptions): void;
 }
 
 const Checkbox = ({ label, handleCheckboxChange }: CheckboxProps) => {
