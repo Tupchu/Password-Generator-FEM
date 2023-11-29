@@ -4,7 +4,11 @@ import ConfigurePassword from "../ConfigurePassword";
 describe("generate password button", () => {
   it("should be disabled if passwordlength is 0", () => {
     render(
-      <ConfigurePassword passwordLength={0} updatePasswordLength={() => {}} />
+      <ConfigurePassword
+        passwordLength={0}
+        updatePasswordLength={() => {}}
+        updateGeneratedPassword={() => {}}
+      />
     );
 
     const btn = screen.getByText("Generate", { selector: "button" });
@@ -13,7 +17,11 @@ describe("generate password button", () => {
 
   it("should be disabled if passwordlength is less than 0", () => {
     render(
-      <ConfigurePassword passwordLength={-1} updatePasswordLength={() => {}} />
+      <ConfigurePassword
+        passwordLength={-1}
+        updatePasswordLength={() => {}}
+        updateGeneratedPassword={() => {}}
+      />
     );
 
     const btn = screen.getByText("Generate", { selector: "button" });
@@ -22,7 +30,11 @@ describe("generate password button", () => {
 
   it("should be disabled if there are no checked boxes", () => {
     render(
-      <ConfigurePassword passwordLength={8} updatePasswordLength={() => {}} />
+      <ConfigurePassword
+        passwordLength={8}
+        updatePasswordLength={() => {}}
+        updateGeneratedPassword={() => {}}
+      />
     );
 
     const checkboxes = screen.queryAllByRole("checkbox") as HTMLInputElement[];
@@ -40,7 +52,11 @@ describe("generate password button", () => {
 
   it("should not be disabled if passwordlength is greater than 0 and a box is checked", () => {
     render(
-      <ConfigurePassword passwordLength={8} updatePasswordLength={() => {}} />
+      <ConfigurePassword
+        passwordLength={8}
+        updatePasswordLength={() => {}}
+        updateGeneratedPassword={() => {}}
+      />
     );
 
     const checkboxes = screen.queryAllByRole("checkbox") as HTMLInputElement[];
