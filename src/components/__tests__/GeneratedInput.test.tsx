@@ -4,15 +4,15 @@ import GeneratedInput from "../GeneratedInput";
 it("should not have class 'clickable' with no generated input", () => {
   render(<GeneratedInput generatedPassword="" />);
 
-  const input = screen.queryByAltText("Copy generated password");
+  const icon = screen.getByTestId("copy-icon");
 
-  expect(input).not.toHaveClass("clickable");
+  expect(icon).not.toHaveClass("clickable");
 });
 
 it("should have class 'clickable' with generated input", () => {
   render(<GeneratedInput generatedPassword="1234ths$!45" />);
 
-  const input = screen.queryByAltText("Copy generated password");
+  const icon = screen.getByTestId("copy-icon");
 
-  expect(input).toHaveClass("clickable");
+  expect(icon).toHaveClass("clickable");
 });

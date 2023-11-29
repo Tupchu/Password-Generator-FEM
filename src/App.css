@@ -101,9 +101,18 @@ body {
 .btn {
   width: 100%;
   padding: var(--spacing-md) 0;
-  background-color: var(--clr-green);
-  color: var(--clr-background-dark);
-  border: none;
+}
+
+.toast {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  border: solid 1px var(--clr-green);
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-sm) 0;
 }
 
 /* Utilities */
@@ -117,4 +126,8 @@ body {
 
 .body-text {
   font-size: var(--fs-sm);
+}
+
+.hidden {
+  display: none;
 }

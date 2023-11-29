@@ -4,7 +4,7 @@
 }
 
 .checkbox-container:not(:last-child) {
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-sm);
 }
 
 .checkbox-container label {

@@ -7,9 +7,17 @@
   margin-top: var(--spacing-lg);
 }
 
-.input-container img {
+.input-container svg {
   position: absolute;
   right: var(--spacing-lg);
+}
+
+.input-container .clickable:hover path {
+  fill: var(--clr-white);
+}
+
+.input-container .clickable:active path {
+  scale: 0.975;
 }
 
 .generated-input {
@@ -35,12 +43,33 @@
   margin-bottom: var(--spacing-lg);
 }
 
+.generate-btn {
+  background-color: var(--clr-green);
+  color: var(--clr-background-dark);
+  border: solid 1px var(--clr-green);
+}
+
 .generate-btn:disabled {
   background-color: gray;
+  border-color: gray;
+}
+
+.generate-btn:hover:not([disabled]) {
+  background: none;
+  border: solid 1px var(--clr-green);
+  color: var(--clr-green);
+}
+
+.generate-btn:hover:not([disabled]) .btn-icon path {
+  fill: var(--clr-green);
+}
+
+.generate-btn svg {
+  margin-left: var(--spacing-sm);
 }
 
 .options {
-  margin-top: 2rem;
+  margin-top: var(--spacing-lg);
 }
 
 /* StrengthIndicator */

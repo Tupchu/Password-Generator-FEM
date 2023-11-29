@@ -1,6 +1,5 @@
 import Slider from "./UI/slider/Slider";
 import "./components.css";
-import RightIcon from "../assets/icon-arrow-right.svg";
 import Checkbox from "./UI/checkbox/Checkbox";
 import { useState } from "react";
 import { generatePassword } from "../helpers/helpers";
@@ -76,7 +75,18 @@ const ConfigurePassword = ({
         disabled={passwordLength <= 0 || checkedboxes.length === 0}
         onClick={handleGeneratePassword}
       >
-        Generate <img src={RightIcon} alt="Generate password" />
+        Generate
+        <svg
+          className="btn-icon"
+          width="12"
+          height="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="#24232C"
+            d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"
+          />
+        </svg>
       </button>
     </div>
   );
